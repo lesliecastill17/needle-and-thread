@@ -1,0 +1,188 @@
+html {
+    box-sizing:border-box;
+}
+
+*, *:before, *:after {
+    box-sizing:inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* 
+Notes on new terms in the styles below:
+-vw stands for "viewport width" and the number represents a percentage of that width. "10vw" is 10%
+of the viewport's width
+-span is different than the span we learned about when discussing HTML. here it  means that given 
+grid column extends from an initial grid line to an second grid line, so "1 / span 5" means the column 
+extends from grid line one to grid line five. 
+*/
+
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-rows: 10vw 30vw 10vw;  */
+  grid-gap: 1em;
+}
+
+header, footer {
+  grid-column: 1 / span 5;
+}
+
+aside {
+  grid-column: 1/ span 5;
+  font-family: Schoolbell;
+  font-style: normal;
+  font-size: 24px;
+}
+
+footer { 
+  font-family: 'Darumadrop One', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: rgb(3, 3, 3);
+  align-items:center;
+  column-height: 100px;
+}
+
+.header { 
+  font-family: 'Darumadrop One', sans-serif;
+  font-size: 100px;
+  font-weight: 900;
+  color: rgb(0, 0, 0);
+}
+
+
+main{
+  font-family: Schoolbell;
+  font-style: normal;
+  font-size: 24px;
+  grid-column: 1 / span 5;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: .06;
+  background-size: cover;
+  z-index: -1;
+}
+
+
+body {
+  margin: 0 auto;
+  max-width: 56em;
+  padding: 1em 0;
+}
+
+header, main, aside, footer {
+  background: #0c0ca000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.foothead{
+  font-size: 36px;
+}
+
+.footlinks{
+font-family: 'Darumadrop One', sans-serif;
+color:rgb(55, 158, 206);
+text-decoration: none;
+}
+
+.title{
+  font-family: 'Darumadrop One', sans-serif;
+  font-size: 36px;
+}
+
+.images{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+.zoom-image {
+  width: 300px;
+  height: auto;
+  transition: transform 0.3s ease; 
+}
+.zoom-image2 {
+  height: auto;
+  transition: transform 0.3s ease; 
+}
+.zoom-image:hover {
+  transform: scale(1.2); 
+}
+.zoom-image2:hover {
+  transform: scale(1.2); 
+}
+
+.mypics{
+  display: grid;
+  /* width: 400px;
+  height: 140px; */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+/* 
+this is a media query that says "when the width of the viewport exceeds 700px, activate the following styles",
+then, the grid column span for the main and aside elements changes from 1 / span 3 and span 2, respectively, to 1 / span 5 for both elements
+*/
+
+@media (max-width: 700px) {
+  
+  main {
+    grid-column: 1 / span 5;
+    font-size: 16px;
+  }
+  
+
+/* Demo Specific Styles */
+
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: .06;
+  background-size: cover;
+  z-index: -1;
+}
+
+.header { 
+  font-family: 'Darumadrop One', sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  color: rgb(0, 0, 0);
+}
+
+.foothead{
+  font-size: 24px;
+}
+
+.title{
+  font-family: 'Darumadrop One', sans-serif;
+  font-size: 24px;
+}
+
+.images{
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+
+.footlinks{
+font-family: 'Darumadrop One', sans-serif;
+color:rgb(55, 158, 206);
+text-decoration: none;
+font-size: 15px;
+}
+aside{
+  font-size: 16px;
+}
+
+}
